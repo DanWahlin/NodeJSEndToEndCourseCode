@@ -1,0 +1,24 @@
+{
+    "databaseConfig": {
+        "host": "localhost",
+        "database": "codeWithDan"
+    },
+
+    "brainTreeConfig": {
+        "merchantId": "vr2f7rzysmt9b8fp",
+        "publicKey": "hnfh7fgzmpt9xszb",
+        "privateKey": "c3580712da4481b9cc5b3e6f76091d6a"
+    },
+
+    "bcrypt": {
+        "difficulty": 8
+    },
+
+    "mandrillConfig": {
+        "host": "smtp.mandrillapp.com",
+        "port": "587",
+        "userName": "dwahlin@xmlforasp.net",
+        "password": "isLoH5mGNMmpanGGvEy3lw",
+        "adminEmail": "admin@codewithdan.com"
+    }
+}

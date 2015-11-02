@@ -1,0 +1,22 @@
+<div class="modal fade" id="modalVideo" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="modalVideoTitle"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="video-container embed-responsive embed-responsive-16by9">
+                    <iframe id="videoPlayer" data-productId="{{id}}"
+                            class="embed-responsive-item"
+                            frameborder="0"
+                            webkitallowfullscreen mozallowfullscreen
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+<div class="section">
+    <div class="wrapper">
+        <div class="container-fluid">
+
+            {{#if userPurchaseInfo.purchasedAndNotExpired}}
+                <br />
+                <ul id="product-tabs" class="nav nav-tabs nav-justified responsive" role="tablist">
+                    <li class="active"><a href="#outline" role="tab" data-toggle="tab">Course Outline</a></li>
+                    <li><a href="#description" role="tab" data-toggle="tab">Description</a></li>
+                    <li><a href="#discussion" role="tab" data-toggle="tab">Discussion</a></li>
+                    <li><a href="#materials" role="tab" data-toggle="tab">Materials/Files</a></li>
+                </ul>
+            {{else}}
+                <h3>Course Outline</h3>
+            {{/if}}
+
+            <div class="tab-content responsive">
+                <div id="outline" class="modules-container tab-pane fade in active">
+
+                    {{#each modules}}
+
+                        <div class="row module-row">
+                            <div class="col-xs-6">
+                                <span class="module-title" data-moduleId="{{moduleId}}">{{title}}</span>
+                            </div>
+                            <div class="col-xs-4"><span class="module-length">{{length}}</span></div>
+                        </div>
+                        <div data-moduleId="{{moduleId}}">
+
+                            {{#each sections}}
+
+                                <div class="row section-row">
+                                    <div class="col-xs-6">
+
+                                        {{#if ../../userPurchaseInfo.purchasedAndNotExpired}}
+                                            <div class="video-link"
+                                                 data-moduleId="{{ ../../moduleId }}"
+                                                 data-sectionId="{{ sectionId }}"
+                                                 data-videoTitle="{{ title }}">
+                                                <span class="fa fa-play fa-lg"></span>&nbsp;&nbsp;
+                                                <span class="section-title">{{title}}</span>
+                                            </div>
+                                        {{else}}
+                                            <span class="section-title">{{ title }}</span>
+                                        {{/if}}
+
+                                    </div>
+                                    <div class="col-xs-2">{{length}}</div>
+                                    <div class="col-xs-2">
+                                        <span class="fa green"
+                                              data-sectionId="{{ sectionId }}"
+                                              title="Completed"></span>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        {{#if ../../userPurchaseInfo.purchasedAndNotExpired }}
+                                            <a class="btn btn-videopreview btn-sm pull-right video-link"
+                                                title="Play"
+                                                data-videoTitle="{{ title }}"
+                                                data-moduleId="{{ ../../moduleId }}"
+                                                data-sectionId="{{ sectionId }}"
+                                                href="javascript:;">Play</a>
+                                        {{else}}
+                                            {{#if isFree}}
+                                                <a class="btn btn-videopreview btn-sm pull-right video-preview-link"
+                                                   title="View for Free!"
+                                                   data-videourl="{{ videoUrl }}"
+                                                   data-videoTitle="{{ title }}"
+                                                   href="javascript:;">Preview</a>
+                                            {{/if}}
+                                        {{/if}}
+                                    </div>
+                                </div>
+
+                            {{/each}}
+
+                        </div>
+
+                    {{/each}}
+                </div>
+                {{#if userPurchaseInfo.purchasedAndNotExpired}}
+                    <div id="description" class="tab-pane fade">
+                        <br />
+                        <div class="product-description">{{description}}</div>
+                    </div>
+
+                    {{> product/discussion}}
+
+                    {{> product/materials}}
+
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

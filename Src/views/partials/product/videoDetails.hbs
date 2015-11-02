@@ -1,0 +1,13 @@
+{{#unless userPurchaseInfo.purchasedAndNotExpired}}
+    <br />
+    <h3>Course Description</h3>
+    <div class="product-description">{{{ description }}}</div>
+
+    {{> product/videoSamplePlayer }}
+{{/unless}}
+
+{{#if userPurchaseInfo.expirationDate}}
+    {{#unless userPurchaseInfo.expired }}
+        <br />Your rental expires on {{formatDate userPurchaseInfo.expirationDate "%m/%d/%Y"}}"
+    {{/unless}}
+{{/if}}

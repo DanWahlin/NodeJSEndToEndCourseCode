@@ -1,0 +1,59 @@
+<section class="userpage-section">
+    <div class="wrapper">
+        <div class="container-fluid animated fadeInDown">
+            <div class="feature-section-content">
+                    <div class="featured-item white">
+                        <br />
+                        <div class="item-name"><span class="fa fa-envelope-o"></span> Contact Us</div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <br />
+                    {{#if emailSent}}
+                        <br /><h3 class="messageSummary">Thank You! Your information has been sent.</h3>
+                    {{else}}
+                        <form action="/contact" method="post" class="contact-form">
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="text" class="form-control" name="from" value="{{contactForm.from}}" autofocus />
+                            </div>
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="text" class="form-control" name="subject" value="{{contactForm.subject}}" />
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea class="form-control" name="text" value="{{contactForm.text}}"></textarea>
+                            </div>  
+                            
+                            {{> botField }}
+                            
+                            <button type="submit" class="btn btn-primary btn-lg">Send</button>
+                            
+                            <input type="hidden" name="_csrf" value="{{_csrf}}"/>
+                            <br />
+                            <div class="validationSummary">
+                                <br />
+                                {{#if messages}}
+                                    <ul>
+                                        {{#each messages}}
+                                            <li>{{.}}</li>
+                                        {{/each}}
+                                    </ul>
+                                {{/if}}
+                            </div>
+                        </form>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

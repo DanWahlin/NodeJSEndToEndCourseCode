@@ -1,0 +1,77 @@
+<div class="table-responsive cartContainer">
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="5">
+                    <br />
+                    Your cart is currently empty
+                </td>
+            </tr>
+            <tr>
+                <!-- Add Item sku and title Here -->
+
+
+                <td>
+                    <span ng-switch="vm.isCartEditable">
+                        <span ng-switch-when="false">{{item.quantity}}</span>
+                        <span ng-switch-when="true">
+                            <input type="text"
+                                   class="quantity"
+                                   ng-model="item.quantity"
+                                   ng-change="vm.updateTotal(item)" />
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <span ng-switch="item.priceType">
+                        <span ng-switch-when="rentPrice">{{ item.pricing.rentPrice | currency }}</span>
+                        <span ng-switch-when="buyPrice">{{ item.pricing.buyPrice | currency }}</span>
+                        <span ng-switch-when="premiumPrice">{{ item.pricing.premiumPrice | currency }}</span>
+                        <span ng-switch-when="licensePrice">{{ item.pricing.licensePrice | currency }}</span>
+                    </span>
+                </td>
+                <td ng-if="item.discountAmount">
+                    -{{ item.discountAmount | currency }}
+                </td>
+                <td ng-if="!item.discountAmount">
+                    &nbsp;
+                </td>
+                <td>
+                    <span ng-switch="item.priceType">
+                        <span ng-switch-when="rentPrice">7 Day Rental</span>
+                        <span ng-switch-when="buyPrice">Unlimited Online Access</span>
+                        <span ng-switch-when="premiumPrice">Unlimited Online Access + Video Downloads</span>
+                        <span ng-switch-when="licensePrice">&nbsp;</span>
+                    </span>
+                </td>
+                <td>{{item.total | currency}}</td>
+            </tr>
+            <tr ng-if="vm.cart.discountAmount">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>{{ vm.cart.discountPercentage }}% discount</td>
+                <td>-{{ vm.cart.discountAmount | currency }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td><h4>{{ vm.cart.total | currency }}</h4></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

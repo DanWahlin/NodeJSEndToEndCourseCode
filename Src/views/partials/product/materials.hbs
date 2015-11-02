@@ -1,0 +1,19 @@
+<div id="materials" class="tab-pane fade">
+    <br />
+    {{#is userPurchaseInfo.priceType "rentPrice"}}
+        Sorry, no PDF or file download is available for rentals.
+    {{/is}}
+
+    {{#is userPurchaseInfo.priceType "buyPrice"}}
+        <a href="{{urls.materialsUrl}}">PDF Materials and Code Download</a>
+
+    {{/is}}
+
+    {{#is userPurchaseInfo.priceType "premiumPrice"}}
+        <ul>
+            <li><a href="{{urls.materialsUrl}}">PDF Materials and Code Download</a></li>
+            <li><a href="{{urls.videosDownloadUrl}}">Video Download</a></li>
+        </ul>
+
+    {{/is}}
+</div>

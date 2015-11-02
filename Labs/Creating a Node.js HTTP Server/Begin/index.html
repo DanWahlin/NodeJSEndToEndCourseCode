@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>HTTP/JSON Server</title>
+</head>
+<body>
+	<h1>Customers</h1>
+	<div id="Customers"></div>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script>
+        $.get('/customers', function (data) {
+            var names = '';
+            for (var i = 0; i < data.length; i++) {
+                var name = data[i].firstName + ' ' + data[i].lastName + '<br />';
+                names += name;
+            };
+            $('#Customers').html(names);
+        });
+    </script>
+</body>
+</html>

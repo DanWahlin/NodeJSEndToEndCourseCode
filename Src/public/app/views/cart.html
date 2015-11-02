@@ -1,0 +1,30 @@
+<br />
+<div ng-include src="'/app/views/cartItems.html'"></div>
+
+<div class="row cart-container">
+    <div class="col-md-6 col-xs-12">
+        <div class="discount-code" ng-show="vm.showDiscountCodeSection">
+            <div ng-show="!vm.showDiscountCode" ng-click="vm.displayDiscountCode()" class="pointer">Have a discount code?</div>
+            <div ng-show="vm.showDiscountCode">
+                <input type="text" ng-model="vm.discountCode" placeholder="Enter code"/>
+                <input type="button"
+                       class="btn btn-sm btn-default"
+                       ng-click="vm.applyDiscountCode()"
+                       value="Apply" />
+            </div>
+            <div ng-show="vm.discountCodeMessage">
+                <br />
+                <span class="validationSummary" ng-class="vm.discountCodeClass">{{ vm.discountCodeMessage }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+        <div class="pull-right">
+            <input type="button"
+                   class="btn btn-lg btn-success"
+                   ng-if="vm.cart.total > 0"
+                   ng-click="vm.checkout()"
+                   value="{{vm.checkoutText}}" />
+        </div>
+    </div>
+</div>

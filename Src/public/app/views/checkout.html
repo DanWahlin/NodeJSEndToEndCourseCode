@@ -1,0 +1,37 @@
+<h2>
+    <span class="fa fa-shopping-cart"></span>
+    Check Out
+</h2>
+<br />
+
+<div ng-include src="'/app/views/cartItems.html'"></div>
+
+<div>
+    <div class="form-group">
+        <label>Name</label>
+        <br />
+        <input type="text" class="form-control" placeholder="Name" ng-model="vm.checkoutData.name" />
+    </div>
+    <div class="form-group">
+        <label>Credit Card Number</label>
+        <br />
+        <input type="tel" class="form-control credit-card" placeholder="CC #" maxlength="19" ng-model="vm.checkoutData.creditCardNumber"  />
+    </div>
+    <div class="form-group form-inline">
+        <label>Expiration (01/2016)</label>
+        <br />
+        <input type="tel" class="form-control" style="width: 65px" placeholder="MM" maxlength="2" ng-model="vm.checkoutData.expirationMonth" /> /
+        <input type="tel" class="form-control" style="width: 65px" placeholder="YYYY" maxlength="4" ng-model="vm.checkoutData.expirationYear" />
+    </div>
+    <div class="form-group">
+        <label>CVV Code</label>
+        <input type="tel" class="form-control credit-card-short" placeholder="cvv" maxlength="4" ng-model="vm.checkoutData.cvvCode" />
+    </div>
+    <input type="submit" class="btn btn-lg btn-success" ng-disabled="vm.orderInProcess" ng-click="vm.completeOrder()" value="Complete Order" />
+    <input type="hidden" name="_csrf" value="{{vm._csrf}}" />
+</div>
+<br />
+<div class="validationSummary" ng-if="vm.error">
+    <div class="alert alert-danger">{{ vm.error }}</div>
+</div>
+<br />

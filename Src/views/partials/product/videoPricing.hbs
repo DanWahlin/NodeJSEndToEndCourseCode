@@ -1,0 +1,107 @@
+<h3>Pricing</h3>
+<div class="price">
+    <ul>
+        <li>&nbsp;</li>
+        <li>Online Access</li>
+        <li>Download PDFs</li>
+        <li>Download Code</li>
+        <li>Download Videos</li>
+        <li>&nbsp;</li>
+    </ul>
+
+    {{#if pricing.rentPrice}}
+        <ul class="hover">
+            <li>
+                <span class="price-type">Rent <br />
+                    {{#formatPrice pricing.rentPrice pricing.discountRentPrice}}{{/formatPrice}}
+                </span>
+            </li>
+            <li>7 days</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>
+                <a class="btn btn-success btn-lg cartItem center-block"
+                   data-productId="{{_id}}"
+                   data-priceType="rentPrice"
+                   data-discountCode="{{pricing.discountCode}}"
+                   title="7-days of online access" href="javascript:;">Rent</a>
+            </li>
+        </ul>
+    {{/if}}
+
+    {{#if pricing.buyPrice}}
+        <ul class="hover center">
+            <li>
+                <span class="price-type">Buy <br />
+                    {{#formatPrice pricing.buyPrice pricing.discountBuyPrice}}{{/formatPrice}}
+                </span>
+            </li>
+            <li>Unlimited</li>
+            <li><span class="glyphicon glyphicon-ok green"></span></li>
+            <li><span class="glyphicon glyphicon-ok green"></span></li>
+            <li>&nbsp;</li>
+            <li>
+                <a class="btn btn-success btn-lg cartItem center-block"
+                   data-productId="{{_id}}"
+                   data-priceType="buyPrice"
+                   data-discountCode="{{pricing.discountCode}}"
+                   title="Unlimited online access" href="javascript:;">Buy</a>
+            </li>
+        </ul>
+    {{/if}}
+
+    {{#if pricing.premiumPrice}}
+        <ul class="hover center">
+            <li>
+                <span class="price-type">Premium <br />
+                    {{#formatPrice pricing.premiumPrice pricing.discountPremiumPrice}}{{/formatPrice}}
+                </span>
+            </li>
+            <li>Unlimited</li>
+            <li><span class="glyphicon glyphicon-ok green"></span></li>
+            <li><span class="glyphicon glyphicon-ok green"></span></li>
+            <li><span class="glyphicon glyphicon-ok green"></span></li>
+            <li>
+                <a class="btn btn-success btn-lg cartItem center-block"
+                   data-productId="{{_id}}"
+                   data-priceType="premiumPrice"
+                   data-discountCode="{{pricing.discountCode}}"
+                   title="Unlimited online access + the ability to download the videos"
+                   href="javascript:;">Buy</a>
+            </li>
+        </ul>
+    {{/if}}
+
+    {{#if pricing.udemyPrice}}
+        <ul class="hover center">
+            <li>
+                <span class="price-type">Buy <br />
+                    {{#formatPrice pricing.udemyPrice pricing.discountUdemyPrice}}{{/formatPrice}}
+                </span>
+            </li>
+            <li>Unlimited</li>
+            <li><span class="glyphicon glyphicon-ok green"></span></li>
+            <li><span class="glyphicon glyphicon-ok green"></span></li>
+            <li>&nbsp;</li>
+            <li>
+                {{#if @root.isAuthenticated}}
+                    <a class="btn btn-success btn-lg center-block"
+                       data-productId="{{_id}}"
+                       data-priceType="udemyPrice"
+                       data-discountCode="{{pricing.discountCode}}"
+                       title="Unlimited online access + mobile app access"
+                       href="{{urls.udemyUrl}}?couponCode={{pricing.discountCode}}">Buy</a>
+                    Available on Udemy.com
+                {{else}}
+                    <a class="btn btn-success btn-lg center-block"
+                       title="Unlimited online access + mobile app access"
+                       href="/login">Login to Buy</a>
+                {{/if}}
+            </li>
+        </ul>
+    {{/if}}
+
+    <div class="clearFloats"></div>
+</div>
+<br />

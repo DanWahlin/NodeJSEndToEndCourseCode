@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>HTTP/JSON Server</title>
+</head>
+<body>
+    <h1>Customers</h1>
+    <div id="Customers"></div>
+
+    <h1>Orders</h1>
+    <div id="Orders"></div>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script>
+        $.get('/customers', function (data) {
+            var names = '';
+            for (var i = 0; i < data.length; i++) {
+                var name = data[i].firstName + ' ' + data[i].lastName + '<br />';
+                names += name;
+            };
+            $('#Customers').html(names);
+        });
+
+        $.get('/orders', function (data) {
+            var orders = '';
+            for (var i = 0; i < data.length; i++) {
+                var order = 'Order ID: ' + data[i].orderID + ' Quantity: ' + data[i].quantity + '<br />';
+                orders += order;
+            };
+            $('#Orders').html(orders);
+        });
+    </script>
+</body>
+</html>

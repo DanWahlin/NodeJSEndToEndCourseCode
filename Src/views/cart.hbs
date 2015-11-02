@@ -1,0 +1,42 @@
+{{#content "styles"}}
+    <link href="/css/animations.css" rel="stylesheet" />
+{{/content}}
+
+<section class="userpage-section">
+    <div class="wrapper">
+        <div class="container-fluid animated fadeInDown">
+            <div class="feature-section-content">
+                    <div class="featured-item white">
+                        <br />
+                        <div class="item-name"><span class="fa fa-shopping-cart"></span> Your Cart</div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info-section">
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-10">
+                    <div ng-app="codeWithDan">
+                        <div ng-view class="slide-animation"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#content "scripts"}}
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.min.js"></script>
+
+    <script src="/app/app.js"></script>
+    <script src="/app/controllers/cart.controller.js"></script>
+    <script src="/app/controllers/checkout.controller.js"></script>
+    <script src="/app/controllers/completedOrder.controller.js"></script>
+    <script src="/app/services/cart.service.js"></script>
+{{/content}}

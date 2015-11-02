@@ -1,0 +1,112 @@
+
+
+
+{{#unless product}}
+    <div class="section" aria-label="No Product Found">
+        <div class="wrapper">
+            <div class="container-fluid">
+                <h4>Sorry, no product was found.</h4>
+            </div>
+        </div>
+    </div>
+{{/unless}}
+
+{{#with product}}
+    <section class="userpage-section">
+        <div class="wrapper">
+            <div class="container-fluid animated fadeInDown">
+                <div class="feature-section-content">
+                        <div class="featured-item white">
+                            <br />
+                            <div class="item-name">
+                                {{#if productTypeId.iconCssClass}}
+                                    <span class="fa {{productTypeId.iconCssClass}}"></span>&nbsp;
+                                {{/if}}
+                                {{productTypeId.title}}
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section aria-label="Product Information">
+        <div class="wrapper">
+            <div class="container-fluid">
+                <h2 aria-label="Product Title">
+                    <br />
+                    {{title}} &nbsp;
+
+                    <span class="pull-right">
+                        {{> social}}
+                    </span>
+                </h2>
+
+                {{#is productTypeId.title "Training"}}
+                    {{> product/trainingDetails }}
+                {{/is}}
+
+                {{#is productTypeId.title "Courseware"}}
+                    <span class="authors">
+                        by {{ authors }}
+                    </span>
+
+                    <br />
+
+                    {{> product/trainingDetails }}
+                {{/is}}
+
+                {{#is productTypeId.title "Videos"}}
+                    {{> product/videoDetails }}
+                {{/is}}
+            </div>
+        </div>
+    </section>
+
+    <section aria-label="Product Pricing">
+        <div class="wrapper">
+            <div class="container-fluid">
+                {{#is productTypeId.title "Videos"}}
+                    {{#unless userPurchaseInfo.purchasedAndNotExpired}}
+                        {{> product/videoPricing }}
+                    {{/unless}}
+                {{/is}}
+
+                {{#is productTypeId.title "Labs"}}
+                    {{> product/labsPricing }}
+                {{/is}}
+
+                {{#is productTypeId.title "Courseware"}}
+                    {{> product/coursewarePricing }}
+                {{/is}}
+
+                {{#is productTypeId.title "Training"}}
+                    {{> product/trainingPricing }}
+                {{/is}}
+
+            </div>
+        </div>
+    </section>
+
+    {{#if modules}}
+        {{> product/modules }}
+    {{/if}}
+
+    {{#is productTypeId.title "Videos"}}
+        {{> product/videoPlayer }}
+    {{/is}}
+
+{{/with}}
+
+{{#content "scripts"}}
+    <script src="/js/libs/froogaloop.js"></script>
+
+    {{#is product.productTypeId.title "Videos"}}
+        {{#if product.userPurchaseInfo.purchased}}
+            <script src="/js/libs/responsive-tabs.js"></script>
+            <script src="/js/video.js"></script>
+        {{else}}
+            <script src="/js/videoPreview.js"></script>
+        {{/if}}
+    {{/is}}
+{{/content}}

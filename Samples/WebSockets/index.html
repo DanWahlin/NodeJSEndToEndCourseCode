@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title></title>
+    <script src=""></script>
+    <script>
+        var output;
+        window.onload = function() {
+            output = document.getElementById('Output');
+            var ws = new WebSocket('ws://localhost:8090');
+
+            ws.onopen = function() {
+                log('Opened connection');
+                ws.send('Hello from the client!');
+                setTimeout(function() {
+                    ws.send('Delayed message from the client');
+                }, 2000);
+            };
+
+            ws.onmessage = function(msgEvt) {
+                log(msgEvt.data);
+            };
+
+            ws.onclose = function() {
+                log("Closed connection");
+            };
+
+            function log(message) {
+                output.innerHTML += message + '<br />';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="Output"></div>
+</body>
+</html>

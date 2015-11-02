@@ -1,0 +1,26 @@
+{
+    "databaseConfig": {
+        "host": "mongo",
+        "database": "codeWithDan",
+        "username": "webrole",
+        "password": ""
+    },
+
+    "brainTreeConfig": {
+        "merchantId": "",
+        "publicKey": "",
+        "privateKey": ""
+    },
+
+    "bcrypt": {
+        "difficulty": 8
+    },
+
+    "mandrillConfig": {
+        "host": "smtp.mandrillapp.com",
+        "port": "587",
+        "userName": "",
+        "password": "",
+        "adminEmail": ""
+    }
+}

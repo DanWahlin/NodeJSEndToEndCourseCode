@@ -1,0 +1,45 @@
+<section class="userpage-section">
+    <div class="wrapper">
+        <div class="container-fluid animated fadeInDown">
+            <div class="feature-section-content">
+                    <div class="featured-item white">
+                        <br />
+                        <div class="item-name"><span class="fa fa-search"></span> Search Results</div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info-section">
+    <div class="wrapper">
+        <div class="container-fluid">
+               <br />
+               <h3>Here are your search results:</h3>
+               <br />
+                {{#if results}}
+                        <div class="row">
+                            {{#each results}}
+                            <div class="col-sm-6 col-md-4 col-lg-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a href="/product/{{sku}}">
+                                            <span class="fa {{productTypeId.iconCssClass}}"></span> {{title}}
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <span class="product-short-description">{{shortDescription}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                {{else}}
+                    <div class="row">
+                        <div class="col-lg-12">Sorry, no results were found</div>
+                    </div>
+                {{/if}}
+             </div>
+         </div>
+    </div>
+</section>

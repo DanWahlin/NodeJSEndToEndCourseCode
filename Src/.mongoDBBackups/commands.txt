@@ -1,0 +1,7 @@
+mongodump --host 127.0.0.1:27017 --db codeWithDan --out .MongodbBackups/9-14-2015
+
+
+mongorestore --host 127.0.0.1:27017 --db codeWithDan .MongodbBackups/9-14-2015/codeWithDan
+
+
+http://docs.mongodb.org/master/reference/program/mongodump/

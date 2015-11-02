@@ -1,0 +1,28 @@
+<h3>Pricing</h3>
+<div class="price">
+    <ul>
+        <li>&nbsp;</li>
+        <li>Online Access</li>
+        <li>Download PDFs</li>
+        <li>Download Code</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+    </ul>
+
+    <ul class="hover center">
+        <li><span class="price-type">Buy <br />{{#formatPrice pricing.buyPrice pricing.discountBuyPrice}}{{/formatPrice}}</span></li>
+        <li>Unlimited</li>
+        <li><span class="glyphicon glyphicon-ok green">&nbsp;</span></li>
+        <li><span class="glyphicon glyphicon-ok green">&nbsp;</span></li>
+        <li>&nbsp;</li>
+        <li>
+            <a class="btn btn-success btn-lg cartItem center-block"
+               data-productId="{{_id}}"
+               data-priceType="buyPrice"
+               data-discountCode="{{pricing.discountCode}}"
+               title="Unlimited online access" href="javascript:;">Buy</a>
+        </li>
+    </ul>
+    <div class="clearFloats"></div>
+</div>
+<br />

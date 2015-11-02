@@ -1,0 +1,15 @@
+{
+  "name": "Sockets",
+  "version": "1.0.0",
+  "description": "Socket.io demo",
+  "main": "server.js",
+  "dependencies": {
+    "socket.io": "^0.9.17"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Dan Wahlin",
+  "license": "ISC"
+}

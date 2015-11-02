@@ -1,0 +1,43 @@
+<h1>User Editor</h1>
+<form method="post" action="/user">
+    User ID: {{ userId }} <input type="hidden" name="userId" value="{{ userId }}" />
+    <br />
+    Name: <input type="text" name="userName" value="{{userName}}" />
+    <br />
+    <input type="submit" value="Update User" />
+</form>
+
+<h2>AJAX Calls</h2>
+<button id="put">PUT (Ajax)</button>&nbsp;&nbsp;<button id="delete">DELETE (Ajax)</button>
+<br />
+<div id="message">{{ message }}</div>
+<br />
+<a href="/">Home</a>
+
+<script>
+    $('#put').click(function() {
+        ajax('PUT');
+    });
+
+    $('#delete').click(function() {
+        ajax('DELETE');
+    });
+
+    function ajax(method) {
+         $.ajax({
+              method: method,
+              url: '/user/ajax',
+              data: getData()
+         })
+         .done(function( data ) {
+            $('#message').html(data.message);
+         });
+    }
+
+    function getData() {
+        return {
+            userId: $('input[name="userId"]').val(),
+            userName: $('input[name="userName"]').val()
+        };
+    }
+</script>

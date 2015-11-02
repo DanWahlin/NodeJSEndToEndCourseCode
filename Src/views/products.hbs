@@ -1,0 +1,52 @@
+<section class="subpage-section product-full-width-background">
+    <div class="wrapper">
+        <div class="container-fluid animated fadeInDown">
+            <div class="feature-section-content">
+                {{#if productType}}
+                    <div class="featured-item white">
+                        <div class="item-name">
+                            <span class="fa {{productType.iconCssClass}}"></span> {{productType.linkTitle}}                                
+                        </div>
+                        <br />
+                        <div class="item-summary">{{{productType.description}}}</div>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info-section">
+    <div class="wrapper">
+        <div class="container-fluid">
+                {{#each catsProducts}}
+                    <br />
+                    <div class="category-header {{cssClass}}" data-categoryId="{{id}}">{{category}}</div>
+                    <br />
+                    <div class="category-container">
+                        <div data-categoryId="{{id}}">
+                            {{#each products}}
+                                <div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <a href="/product/{{sku}}">
+                                                <span class="fa {{productTypeId.iconCssClass}}"></span> {{title}}
+                                            </a>
+                                        </div>
+                                        <div class="card-body">
+                                            {{!--<span class="authors">By {{join authors ", "}}</span>
+                                            <br />--}}
+                                            <span class="product-short-description">{{shortDescription}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                {{else}}
+                    <br />
+                    <h4>Sorry, no products were found.</h4>
+                {{/each}}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+   <head>
+     <title>Socket.io</title>
+
+     <!-- Node.js will load the script dynamically -->
+     <script src="/socket.io/socket.io.js"></script>
+     <script>  
+      window.onload = function() {   
+        var output = document.getElementById('output');
+        var socket = io.connect('http://localhost:8080');
+
+        socket.on('news', function (data) {
+          log(data.news);
+          socket.emit('clientdata', { my: 'data' });
+        });
+
+        function log(message){
+          output.innerHTML += message + '<br />';
+        }
+      };
+     </script>
+   </head>
+   <body>    
+     <h1>Socket.io Test</h1>
+     <br />
+     <div id="output"></div>
+   </body>
+</html>
