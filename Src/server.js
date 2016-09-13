@@ -5,6 +5,7 @@
 var express                 = require('express'),
     exphbs                  = require('express-handlebars'),
     hbsHelpers              = require('handlebars-helpers'),
+    hbsLayouts              = require('handlebars-layouts'),
     passport                = require('passport'),
     flash 	                = require('connect-flash'),
     compression             = require('compression'),
@@ -14,6 +15,7 @@ var express                 = require('express'),
     session                 = require('cookie-session'),
     csurf                   = require('csurf'),
     favicon                 = require('serve-favicon'),
+    merge                   = require('merge'),
     //fs                      = require('fs'),
 
 //Local Modules
@@ -39,15 +41,19 @@ if (app.settings.env === 'development') {
 //        Handlebars template registration
 //*************************************************
 
+var customHelpers = merge(customExpressHbsHelpers, hbsHelpers());
+
 var hbs = exphbs.create({
     extname: '.hbs',
     defaultLayout: 'master',
-    helpers: customExpressHbsHelpers
+    helpers: customHelpers
 });
+
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
+
 //Add custom handlebars template helper functionality
-hbsHelpers.register(hbs.handlebars, {});
+hbsLayouts.register(hbs.handlebars, {});
 
 //*************************************************
 //           Middleware and other settings

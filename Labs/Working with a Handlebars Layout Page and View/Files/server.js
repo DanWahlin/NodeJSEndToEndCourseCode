@@ -5,8 +5,9 @@
 var express                 = require('express'),
     exphbs                  = require('express-handlebars'),
     hbsHelpers              = require('handlebars-helpers'),
+    hbsLayouts              = require('handlebars-layouts'),
     passport                = require('passport'),
-    flash                     = require('connect-flash'),
+    flash 	                = require('connect-flash'),
     compression             = require('compression'),
     morgan                  = require('morgan'),
     bodyParser              = require('body-parser'),
@@ -14,6 +15,7 @@ var express                 = require('express'),
     session                 = require('cookie-session'),
     csurf                   = require('csurf'),
     favicon                 = require('serve-favicon'),
+    merge                   = require('merge'),
     //fs                      = require('fs'),
 
 //Local Modules

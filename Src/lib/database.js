@@ -13,6 +13,8 @@ var database = function () {
                 replset: {}
             };
             options.server.socketOptions = options.replset.socketOptions = { keepAlive: 1 };
+
+            mongoose.Promise = global.Promise;
             
             mongoose.connect('mongodb://' + config.host + '/' + config.database, options);
             conn = mongoose.connection;
