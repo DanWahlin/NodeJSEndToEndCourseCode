@@ -15,8 +15,9 @@ var database = function () {
                 replset: {}
             };
 
-            options.server.socketOptions = options.replset.socketOptions =
-              { keepAlive: 1 };
+            options.server.socketOptions = options.replset.socketOptions = { keepAlive: 1 };
+
+            mongoose.Promise = global.Promise;
 
             //Add Connection Code Here
 
