@@ -1,4 +1,5 @@
 'use strict';
+var moment = require('moment');
 
 var helpers = function() {
 
@@ -24,11 +25,19 @@ var helpers = function() {
         }
 
         return priceString;
+    },
+
+    formatDate = function(date, format) {
+        if (date) {
+            return moment(date).format(format);
+        }
+
     };
 
     return {
         formatCurrency: formatCurrency,
-        formatPrice: formatPrice
+        formatPrice: formatPrice,
+        formatDate: formatDate
     };
 
 }();
