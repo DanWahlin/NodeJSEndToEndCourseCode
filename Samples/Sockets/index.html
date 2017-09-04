@@ -12,7 +12,12 @@
 
         socket.on('news', function (data) {
           log(data.news);
-          socket.emit('clientdata', { my: 'data' });
+          log('Sending to server { name: \'Fred\' }...');
+          socket.emit('clientdata', { name: 'Fred' });
+        });
+
+        socket.on('echo', function (data) {
+          log('Server echoed: ' + JSON.stringify(data.echo));
         });
 
         function log(message){

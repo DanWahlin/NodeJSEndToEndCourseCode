@@ -1,5 +1,5 @@
 {
-  "name": "WebSockets",
+  "name": "web-sockets",
   "version": "1.0.0",
   "description": "WebSockets.io Demo",
   "main": "server.js",

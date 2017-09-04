@@ -1,5 +1,5 @@
 var server = require('http').createServer(handler),
-    io = require('socket.io').listen(server),
+    io = require('socket.io')(server),
     fs = require('fs');
 
 server.listen(8080);
@@ -16,9 +16,10 @@ function handler (req, res) {
     });
 }
 
-io.sockets.on('connection', function (socket) {
-  socket.emit('news', { news: 'Here is what is in the news: ...' });
+io.on('connection', function (socket) {
+  socket.emit('news', { news: 'Server says: Here is what is in the news: ...' });
   socket.on('clientdata', function (data) {
     console.log(data);
+    socket.emit('echo', { echo: data });
   });
 });

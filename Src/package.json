@@ -5,53 +5,46 @@
   "author": "Dan Wahlin",
   "main": "server.js",
   "scripts": {
-    "test": "",
     "start": "node server.js"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.10.0"
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
-    "body-parser": "^1.15.2",
-    "braintree": "^1.41.0",
-    "compression": "^1.6.2",
+    "body-parser": "^1.17.2",
+    "braintree": "^2.2.0",
+    "compression": "^1.7.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
-    "cookie-session": "^2.0.0-alpha.1",
+    "cookie-session": "^1.3.1",
     "csurf": "^1.9.0",
-    "express": "^4.14.0",
+    "express": "^4.15.4",
     "express-handlebars": "^3.0.0",
-    "handlebars": "^4.0.5",
-    "handlebars-layouts": "^3.1.3",
-    "handlebars-helpers": "^0.7.5",
+    "handlebars": "^4.0.10",
+    "handlebars-layouts": "^3.1.4",
+    "handlebars-helpers": "^0.9.8",
     "merge": "^1.2.0",
-    "moment": "^2.15.0",
-    "mongoose": "^4.6.0",
-    "morgan": "^1.7.0",
-    "node-uuid": "^1.4.7",
-    "nodemailer": "^2.6.0",
-    "passport": "^0.3.2",
+    "moment": "^2.18.1",
+    "mongoose": "^4.7.5",
+    "morgan": "^1.8.2",
+    "node-uuid": "^1.4.8",
+    "nodemailer": "^4.1.0",
+    "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
     "readline": "1.3.0",
-    "serve-favicon": "^2.3.0"
+    "serve-favicon": "^2.4.3"
   },
   "devDependencies": {
-    "babel": "^6.5.2",
-    "grunt": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-angular-templatecache": "^2.0.0",
-    "gulp-babel": "^6.1.2",
-    "gulp-concat": "^2.6.0",
-    "gulp-csso": "^2.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^2.3.2",
-    "gulp-traceur": "^0.17.2",
-    "gulp-uglify": "^2.0.0",
-    "mocha": "^3.0.2",
-    "supertest": "^2.0.0"
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0"
   }
 }

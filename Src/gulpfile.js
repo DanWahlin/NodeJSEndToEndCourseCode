@@ -1,6 +1,4 @@
 var gulp = require('gulp'),
-    babel = require('gulp-babel'),
-    traceur = require('gulp-traceur'),
     sass = require('gulp-sass'),
     csso = require('gulp-csso'),
     uglify = require('gulp-uglify'),
@@ -8,8 +6,7 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     templateCache = require('gulp-angular-templatecache'),
     jsPath = 'public/js/*.js',
-    jsDist = 'public/js/dist',
-    es6FilesPath = 'public/js/*.es6.js';
+    jsDist = 'public/js/dist'
 
 gulp.task('sass', function() {
     gulp.src('public/css/styles.scss')
@@ -17,22 +14,6 @@ gulp.task('sass', function() {
         .pipe(sass({ errLogToConsole: true }))
         .pipe(csso())
         .pipe(gulp.dest('public/css'));
-});
-
-gulp.task('traceur', function () {
-    return gulp.src([
-            es6FilesPath
-         ])
-        .pipe(traceur())
-        .pipe(gulp.dest('public/js/compiled'));
-});
-
-gulp.task('babel', function () {
-    return gulp.src([
-            es6FilesPath
-         ])
-        .pipe(babel())
-        .pipe(gulp.dest('public/js/compiled'));;
 });
 
 gulp.task('compressScripts', function() {

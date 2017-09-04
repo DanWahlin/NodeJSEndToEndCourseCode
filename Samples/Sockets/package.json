@@ -1,10 +1,10 @@
 {
-  "name": "Sockets",
+  "name": "sockets",
   "version": "1.0.0",
   "description": "Socket.io demo",
   "main": "server.js",
   "dependencies": {
-    "socket.io": "^0.9.17"
+    "socket.io": "^2.0.3"
   },
   "devDependencies": {},
   "scripts": {
